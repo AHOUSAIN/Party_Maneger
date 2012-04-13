@@ -1,4 +1,10 @@
 PartyManeger::Application.routes.draw do
+  get "pages/host"
+
+  get "pages/party"
+
+  get "pages/guest"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
