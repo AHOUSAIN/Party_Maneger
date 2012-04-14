@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PartyManeger</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <title><%= title%></title>
+  <%= stylesheet_link_tag    "default", :media => "all" %>
+  <%= javascript_include_tag "default" %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
-
-<%= yield %>
-
-</body>
+	<%= yield %>
+	</body>
 </html>
