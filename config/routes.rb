@@ -1,9 +1,8 @@
 PartyManeger::Application.routes.draw do
-  get "pages/host"
+  
 
-  get "pages/party"
-
-  get "pages/guest"
+  match '/party', :to => 'pages#party'
+  match '/guest',   :to => 'pages#guest'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -55,7 +54,7 @@ PartyManeger::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
-
+   root :to => 'pages#host'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
