@@ -9,12 +9,17 @@ gem 'sqlite3'
 
 group :development do
 
-gem 'rspec-rails' ,'2.0.1'
+
+gem 'rspec-rails' ,'2.6.1.beta1'
+gem 'annotate', 
+    :git => 'git://github.com/jeremyolliver/annotate_models.git', 
+    :branch => 'rake_compatibility'
 
 end
 group :test do
 
-gem 'rspec' ,'2.0.1'
+
+gem 'rspec' ,'2.6'
 gem 'webrat' ,'0.7.1'
 end
 

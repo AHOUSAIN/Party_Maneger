@@ -3,11 +3,11 @@ class PagesController < ApplicationController
     @title = 'Host'
   end
 
-  def party
-     @title = 'Party'
+  def about
+     @title = 'About'
   end
 
-  def guest
-     @title = 'Guest'
+  def signin
+     @title = 'Sign in'
   end
 end

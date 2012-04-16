@@ -7,16 +7,16 @@ describe "LayoutLinks" do
     response.should have_selector('title', :content => "Host")
   end
 
-  it "should have a party page at '/contact'" do
-    get '/party'
-    response.should have_selector('title', :content => "Party")
+  it "should have a About page at '/about'" do
+    get '/about'
+    response.should have_selector('title', :content => "About")
   end
 
-  it "should have an Guest page at '/guest'" do
-    get '/guest'
-    response.should have_selector('title', :content => "Guest")
+  it "should have an Sign in page at '/signin'" do
+    get '/signin'
+    response.should have_selector('title', :content => "Sign in")
   end
-  it "should have a signup page at '/signup'" do
+  it "should have a sign up page at '/signup'" do
       get '/signup'
       response.should have_selector('title', :content => "Sign up")
   end

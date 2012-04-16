@@ -1,6 +1,7 @@
 require 'spec_helper'
 
-describe UsersController do
+describe HostsController do
+
   render_views
   describe "GET 'new'" do
     it "should be successful" do
@@ -15,3 +16,4 @@ describe UsersController do
   end
 
 end
+

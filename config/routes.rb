@@ -1,10 +1,11 @@
 PartyManeger::Application.routes.draw do
   
 
-  
-  match '/signup', :to => 'users#new'
-  match '/party', :to => 'pages#party'
-  match '/guest',   :to => 'pages#guest'
+  resources :hosts
+
+  match '/signup', :to => 'hosts#new'
+  match '/about', :to => 'pages#about'
+  match '/signin', :to => 'pages#signin'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
