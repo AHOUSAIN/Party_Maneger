@@ -1,0 +1,120 @@
+
+
+	<div id="wrapper">
+
+	<!-- start page -->
+	<div id="page">
+		<!-- start content -->
+		<div id="content">
+		<div id="logo">
+
+		</div>
+
+			<div class="post">
+				<h1> Party Manager Narrative </h1>
+				
+				
+				Fatma and Arif are graduating from high school this year and the Al Doha family
+				is planning a major party to celebrate this milestone. Mrs. Al Doha had thought
+				about mailing invitations, but Mr. Al Doha realizes that it would be more efficient
+				to handle the entire invitation/RSVP process online. Your task is to build a Party
+				Manager system that, among other things, will allow a user to register an
+				account, create a party, invite guests to that party and collect RSVPs from guests
+				who wish to attend.
+				Creating and managing an account on the system
+				To use the Party Manager system (or whatever you choose to call it), one must
+				first create an account. Anyone is able to create an account – no special
+				requirements, membership or invitation is needed. A user can choose to delete
+				their account on the system at any time; doing so should also delete all related
+				records in the system. A user who creates an account is referred to as a 'host' for
+				purposes of this narrative.
+				To make changes to his/her account, a host needs to login to the system with a
+				username and password. Of course, hosts periodically forget their passwords, so
+				there must be a way for a host to recover or reset a missing password via email.
+				Details about host parties
+				The first thing most hosts do after creating an account is set up a party. A typical
+				party has a name and description, a date it is being held and its start and end
+				times. If RSVPs are required, then an RSVP date (which must be on or before the
+				date of the party) can be added to the party. If no date is provided, then not only
+				are RSVPs not required, but guests will not be able to RSVP to the party.
+				A party also has a location – whether it is the home of the host, a park or other
+				special venue. Each host likely has a small number of locations they use for
+				parties, so a host should have the option of saving the party location for another
+				time. In addition to the usual address information, there needs to be enough
+				Case Narrative Prof. Phelps
+				67-273 Project Spring 2012
+				information in the location data to easily generate a map (using Google Maps) on
+				the party details pages that guests can use to find their way to the party.
+				Each party is different and there are four types of parties that we will consider for
+				now in the Party Manager system: graduation parties (the genesis of this system),
+				birthday parties, baby showers (parties to celebrate a woman's first child), and
+				generic parties.2 Once the host selects what type of party it is, the party details
+				page will automatically change its styling and images to reflect the theme of the
+				party and put visitors in the right frame of mind.
+				Inviting guests to a party
+				Of course, no party is really a party without guests and each host should be able
+				to invite guests to their party. Each guest has a 'name' – although that name is
+				just a string and could be either a person's name like 'Rick Artis' or an identifier
+				that is meaningful to the host like 'Artis Family' or 'Uncle Rick and Aunt Janine'.
+				Each guest should have an email address so invitations and thank you notes can
+				be sent electronically. That email invitation has to include a randomly generated
+				'invite code' that the system can use to verify that this guest has been invited to
+				the party whenever the guest tries to either (1) access the party details page or (2)
+				RSVP for the party.
+				When the host adds a guest, he/she should add the number of people expected in
+				the guest's party (for example, if my wife added the 'Artis Family' to the guest list,
+				she would expect both parents and the three children for a total of 5). There are
+				times when not everyone in a guest's party can attend (in the example above, Mr.
+				Artis is out-of-town that day at a conference), then the guest should be able to put
+				in a number of actual attendees that might differ from the expected number. The
+				actual number of attendees must be confirmed at the time of RSVP; if the actual
+				number of guests coming remains nil, then it is safe to say that the invitation has
+				not been accepted. If a guest later has to withdraw, this value should be reset to
+				nil.
+				2 Students are welcome to add additional party types such as retirement parties, anniversaries and even
+				bachelor parties if they wish. A word to the wise, however: all images and language employed on the site
+				should be appropriate for public consumption. For instance, if one were to choose to add bachelor parties,
+				images used at worst should be PG-13. We will penalize severely any project that uses obscene or
+				offensive images. Also note that when using Rails, do not use the word 'type' for an attribute name – in
+				this case 'party_type' is the preferred reference.
+				Case Narrative Prof. Phelps
+				67-273 Project Spring 2012
+				The host who logs into the system should be able to see the guest list for a
+				particular party. That list should be divided into two parts, the first being the
+				confirmed guest list. That part of the page should give the name of the guest as
+				well as the number attending for each guest. At the bottom of the list should be a
+				count of the total number of confirmed guests. After that should be a list of
+				names of guests who have not yet RSVP'd to the event, along with a count of the
+				number of unconfirmed guests at the bottom. On the home page of the host
+				(viewable after logging in) should be a quick summary of any future parties being
+				hosted – the party name, date and number of confirmed guests should appear in
+				the summary.
+				Handling gifts and thank you notes
+				In addition to automating the invitation process, the system should be able to
+				help the host in processing thank you notes. To do this, any gifts given should be
+				recorded in the system and linked to the guest who gave them. The actual gift
+				can be recorded as text that can be inserted into the thank you note; it can
+				include a comment on the gift added in as well. An example might be "Irish tin
+				whistle. You know how much I like folk music and appreciate the thoughtfulness
+				of the gift." and this note, along with the guest id and party id would make a
+				complete gift record. This note gets pasted into a generic 'thank you' email that is
+				sent out to all gift givers when the host pushes a button or clicks on a link to this
+				functionality on the site.
+				</div>
+			</div>
+
+		</div>
+		<!-- end content -->
+		<!-- start sidebars -->
+		
+		<div style="clear: both;">&nbsp;</div>
+	<!-- end page -->
+	<div id="footer">
+		<p><%= link_to "Go Back to Host Page" , root_path%></p>
+	</div>
+	
+	</div>
+	
+	</div>
+  
+	

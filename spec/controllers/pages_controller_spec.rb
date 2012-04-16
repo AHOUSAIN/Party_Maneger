@@ -21,24 +21,24 @@ describe PagesController do
 
   describe "GET 'party'" do
     it "should be successful" do
-      get 'party'
+      get 'about'
       response.should be_success
     end
     it "should have the right title" do
-      get 'party'
-      response.should have_selector("title" , :content => "Party")
+      get 'about'
+      response.should have_selector("title" , :content => "About")
     
     end
   end
 
   describe "GET 'guest'" do
     it "should be successful" do
-      get 'guest'
+      get 'signin'
       response.should be_success
     end
     it "should have the right title" do
-      get 'guest'
-      response.should have_selector("title" , :content => "Guest")
+      get 'signin'
+      response.should have_selector("title" , :content => "Sign in")
 
     end
   end
