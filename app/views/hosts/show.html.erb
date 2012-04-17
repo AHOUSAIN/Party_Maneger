@@ -11,7 +11,10 @@
 	</div>
 
 		<div class="post">
-			    <p><%= @host.first_name %> , <%= @host.last_name %> ,<%= @host.email %> , <%= @host.username  %></p>
+			<h1>
+				   <%= gravatar_for @host  %>
+			     <%= @host.first_name %> , <%= @host.last_name %> , <%= @host.username  %>
+			 </h1>
 			</div>
 		</div>
 
