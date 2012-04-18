@@ -9,9 +9,39 @@
 	</div>
 
 		<div class="post">
-			<h1> Users#new</h1>
-			    <p>Find me in app/views/users/new.html.erb</p>
-			</div>
+			<h1>Sign up</h1>
+
+			<%= form_for(@host) do |f| %>
+		<%= render 'shared/error_messages' %>
+
+			  <div class="field">
+			    <%= f.label :first_name %><br />
+			    <%= f.text_field :first_name %>
+			  </div>
+			<div class="field">
+			    <%= f.label :username %><br />
+			    <%= f.text_field :username %>
+			  </div>
+			<div class="field">
+			    <%= f.label :last_name %><br />
+			    <%= f.text_field :last_name %>
+			  </div>
+			  <div class="field">
+			    <%= f.label :email %><br />
+			    <%= f.text_field :email %>
+			  </div>
+			  <div class="field">
+			    <%= f.label :password %><br />
+			    <%= f.password_field :password %>
+			  </div>
+			  <div class="field">
+			    <%= f.label :password_confirmation, "Confirmation" %><br />
+			    <%= f.password_field :password_confirmation %>
+			  </div>
+			  <div class="actions">
+			    <%= f.submit "Sign up" %>
+			  </div>
+			<% end %>
 		</div>
 
 	</div>
