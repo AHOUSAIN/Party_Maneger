@@ -11,16 +11,31 @@
 	</div>
 
 		<div class="post">
-			<h1>
-				   <%= gravatar_for @host  %>
-			     <%= @host.first_name %> , <%= @host.last_name %> , <%= @host.username  %>
-			 </h1>
+			<p>you are in your account and plan a party and invite guests </a>
+			  </p>
 			</div>
 		</div>
 
 	</div>
 	<!-- end content -->
 	<!-- start sidebars -->
+	<div id="sidebar1" class="sidebar">
+		<ul>
+			<li>
+				<h1>
+					   <%= gravatar_for @host  %>
+				       <%= @host.last_name %> 
+				      
+				 </h1>
+					<strong>Name: </strong><%= @host.first_name %>  <%= @host.last_name %><br />
+				      <strong>URL: </strong>  <%= link_to host_path(@host), @host %>
+				
+					
+			
+			</li>
+
+			
+	</div>
 	
 	<div style="clear: both;">&nbsp;</div>
 <!-- end page -->
