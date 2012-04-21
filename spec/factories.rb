@@ -6,3 +6,13 @@ Factory.define :host do |host|
   host.password              "foorbar"
   host.password_confirmation "foorbar"
 end
+
+Factory.sequence :first_name do |n|
+  "Person #{n}"
+end
+
+Factory.sequence :email do |n|
+  "person-#{n}@example.com"
+end
+
+

@@ -7,15 +7,14 @@ gem 'rails', '3.2.2'
 
 gem 'sqlite3'
 gem 'gravatar_image_tag', '0.1.0'
+gem "will_paginate", :git => "https://github.com/p7r/will_paginate.git", :branch => "rails3"
 
 group :development do
-
-
 gem 'rspec-rails' ,'2.6.1.beta1'
 gem 'annotate', 
     :git => 'git://github.com/jeremyolliver/annotate_models.git', 
     :branch => 'rake_compatibility'
-
+gem 'faker', '1.0.1'
 end
 group :test do
 

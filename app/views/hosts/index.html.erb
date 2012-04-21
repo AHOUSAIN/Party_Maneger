@@ -1,0 +1,41 @@
+<div id="wrapper">
+
+<!-- start page -->
+<div id="page">
+	<!-- start content -->
+	<div id="content">
+	<div id="logo">
+
+	</div>
+
+		<div class="post">
+			<h1>All Hosts</h1>
+
+			<%= will_paginate %>
+			<ul class="users">
+			  <% @hosts.each do |host| %>
+			    <li>
+			      <%= gravatar_for host, :size => 30 %>
+			      <%= link_to host.last_name, host %>
+				<% if current_host.admin? %>
+				  | <%= link_to "delete", host, :method => :delete, :confirm => "You sure?",
+				                                :title => "Delete #{host.last_name}" %>
+				  <% end %>
+			    </li>
+			  <% end %>
+			</ul>
+			<%= will_paginate %>
+		</div>
+
+	</div>
+	<!-- end content -->
+	<!-- start sidebars -->
+	
+	<div style="clear: both;">&nbsp;</div>
+<!-- end page -->
+<div id="footer">
+	<p><%= link_to "Go Back to Host Page" , root_path%></p>
+</div>
+</div>
+
+</div>

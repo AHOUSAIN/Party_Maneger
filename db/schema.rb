@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120417112740) do
+ActiveRecord::Schema.define(:version => 20120421144211) do
 
   create_table "hosts", :force => true do |t|
     t.string   "first_name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20120417112740) do
     t.datetime "updated_at",         :null => false
     t.string   "encrypted_password"
     t.string   "salt"
+    t.boolean  "admin"
   end
 
   add_index "hosts", ["email"], :name => "index_hosts_on_email", :unique => true

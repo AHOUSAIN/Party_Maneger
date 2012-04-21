@@ -1,0 +1,106 @@
+
+  	
+	
+	<div id="wrapper">
+
+	<!-- start page -->
+	<div id="page">
+		<!-- start content -->
+		<div id="content">
+		<div id="logo">
+
+		</div>
+
+			<div class="post">
+				<h1>Edit host</h1>
+				<%= form_for(@host) do |f| %>
+			<%= render 'shared/error_messages', :object => f.object %>
+
+				  <div class="field">
+				    <%= f.label :first_name %><br />
+				    <%= f.text_field :first_name %>
+				  </div>
+				<div class="field">
+				    <%= f.label :username %><br />
+				    <%= f.text_field :username %>
+				  </div>
+				<div class="field">
+				    <%= f.label :last_name %><br />
+				    <%= f.text_field :last_name %>
+				  </div>
+				  <div class="field">
+				    <%= f.label :email %><br />
+				    <%= f.text_field :email %>
+				  </div>
+				  <div class="field">
+				    <%= f.label :password %><br />
+				    <%= f.password_field :password %>
+				  </div>
+				  <div class="field">
+				    <%= f.label :password_confirmation, "Confirmation" %><br />
+				    <%= f.password_field :password_confirmation %>
+				  </div>
+				  <div class="actions">
+				    <%= f.submit "Update" %>
+				  </div>
+				<% end %>
+
+				<div>
+				  <%= gravatar_for @host %>
+				  <a href="http://gravatar.com/emails">Visit The official gravatar page to change your profile image</a>
+				</div>
+			</div>
+
+		</div>
+		<!-- end content -->
+		<!-- start sidebars -->
+		<div id="sidebar2" class="sidebar">
+			<ul>
+				<% if signed_in? %>
+				<li><h2><%= link_to "Hosts", hosts_path %></li></h2>
+				<li><h2><%= link_to "Sign out", signout_path, :method => :delete %></li></h2>
+				<li><h2><%= link_to "Profile", current_host, :method => :delete %></li></h2>
+				<li><h2><%= link_to "Settings", edit_host_path(current_host) %></li></h2>
+				<% else %>
+				<li>
+					<h2>have an account?</h2>
+					<ul>
+						<p>you already set up your account and you want to start planning for a party</a>
+						  go ahead and sign in </a>   
+	                     <%= link_to "Click here" , signin_path%>
+	</p>
+					</ul>
+				</li>
+
+				<li>
+
+					<h2>Didn't Sign up yet ?</h2>
+					<ul>
+						<p>you want to have an account and plan a party and invite guests </a>
+						  Hurry up and Sign up today</a>   
+	                      <%= link_to "Click here" , signup_path%></p>
+					</ul>
+				</li>
+
+
+				<li>
+					<h2>Learn more </h2>
+					<ul>
+						<p>you want to have 
+						  more information about the project 5 and the about the party Manager application , click on the 	link to learn more about it  
+	                   <%= link_to "Click here" , about_path%></p>
+					</ul>
+				</li>
+				<% end %>
+		</div>
+		<!-- end sidebars -->
+
+		<div style="clear: both;">&nbsp;</div>
+	<!-- end page -->
+	<div id="footer">
+		<p><%= link_to "Go Back to Host Page" , root_path%></p>
+	</div>
+	</div>
+
+	</div>
+	
