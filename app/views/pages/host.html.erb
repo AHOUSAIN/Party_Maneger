@@ -21,14 +21,10 @@
 			<!-- start sidebars -->
 			<div id="sidebar1" class="sidebar">
 				<ul>
-					<li>
-						<h2>Didn't Sign up yet ?</h2>
-						<ul>
-							<p>you want to have an account and plan a party and invite guests </a>
-							  Hurry up and Sign up today</a>   
-		                      <%= link_to "Click here" , signup_path%></p>
-						</ul>
-					</li>
+					<% if signed_in? %>
+					<li><h2><%= link_to "Sign out", signout_path, :method => :delete %></li></h2>
+					<li><h2><%= link_to "Profile", current_host, :method => :delete %></li></h2>
+					<% else %>
 					<li>
 						<h2>have an account?</h2>
 						<ul>
@@ -38,6 +34,18 @@
 		</p>
 						</ul>
 					</li>
+					
+					<li>
+						
+						<h2>Didn't Sign up yet ?</h2>
+						<ul>
+							<p>you want to have an account and plan a party and invite guests </a>
+							  Hurry up and Sign up today</a>   
+		                      <%= link_to "Click here" , signup_path%></p>
+						</ul>
+					</li>
+					
+					
 					<li>
 						<h2>Learn more </h2>
 						<ul>
@@ -46,7 +54,7 @@
 		                   <%= link_to "Click here" , about_path%></p>
 						</ul>
 					</li>
-					
+					<% end %>
 			</div>
 			<div id="sidebar2" class="sidebar">
 				<ul>

@@ -11,8 +11,10 @@
 #  updated_at         :datetime        not null
 #  encrypted_password :string(255)
 #
+require 'digest'
 
 class Host < ActiveRecord::Base
+  
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -48,6 +50,11 @@ class Host < ActiveRecord::Base
     return nil if host.nil?
     return host if host.has_password?(submitted_password)
   end
+  
+  def self.authenticate_with_salt(id, cookie_salt)
+      host = find_by_id(id)
+      (host && host.salt == cookie_salt) ? host : nil
+    end
   
   private
   def encrypt_password
