@@ -5,7 +5,7 @@ describe HostsController do
   render_views
   describe "GET 'index'" do
 
-      describe "for non-signed-in users" do
+      describe "for non-signed-in hosts" do
         it "should deny access" do
           get :index
           response.should redirect_to(signin_path)
@@ -13,7 +13,7 @@ describe HostsController do
         end
       end
 
-      describe "for signed-in users" do
+      describe "for signed-in hosts" do
 
         before(:each) do
           @host = Factory(:host)
@@ -28,14 +28,14 @@ describe HostsController do
                                              :email => Factory.next(:email))
         end
         
-        it "should have an element for each user" do
+        it "should have an element for each host" do
                 get :index
                 @hosts[0..2].each do |host|
                   response.should have_selector("li", :content => host.name)
                 end
               end
 
-              it "should paginate users" do
+              it "should paginate hosts" do
                 get :index
                 response.should have_selector("div.pagination")
                 response.should have_selector("span.disabled", :content => "Previous")
@@ -55,7 +55,7 @@ describe HostsController do
           response.should have_selector("title", :content => "All hosts")
         end
 
-        it "should have an element for each user" do
+        it "should have an element for each host" do
           get :index
           @hosts.each do |host|
             response.should have_selector("li", :content => host.first_name)
@@ -212,7 +212,7 @@ describe HostsController do
                         :password => "barbaz", :password_confirmation => "barbaz" }
             end
 
-            it "should change the user's attributes" do
+            it "should change the hosts's attributes" do
               put :update, :id => @host, :host => @attr
               @host.reload
               @host.first_name.should  == @attr[:first_name]
@@ -221,7 +221,7 @@ describe HostsController do
               @host.email.should == @attr[:email]
             end
 
-            it "should redirect to the user show page" do
+            it "should redirect to the hosts show page" do
               put :update, :id => @host, :host => @attr
               response.should redirect_to(host_path(@host))
             end
@@ -238,7 +238,7 @@ describe HostsController do
               @host = Factory(:host)
             end
 
-            describe "for non-signed-in users" do
+            describe "for non-signed-in hosts" do
 
               it "should deny access to 'edit'" do
                 get :edit, :id => @host
@@ -275,14 +275,14 @@ describe HostsController do
             @host = Factory(:host)
           end
 
-          describe "as a non-signed-in user" do
+          describe "as a non-signed-in hosts" do
             it "should deny access" do
               delete :destroy, :id => @host
               response.should redirect_to(signin_path)
             end
           end
 
-          describe "as a non-admin user" do
+          describe "as a non-admin host" do
             it "should protect the page" do
               test_sign_in(@host)
               delete :destroy, :id => @host

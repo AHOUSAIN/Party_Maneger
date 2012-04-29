@@ -19,7 +19,7 @@ describe PagesController do
     end
   end
 
-  describe "GET 'party'" do
+  describe "GET 'About'" do
     it "should be successful" do
       get 'about'
       response.should be_success
@@ -31,7 +31,7 @@ describe PagesController do
     end
   end
 
-  describe "GET 'guest'" do
+  describe "GET 'Sign in'" do
     it "should be successful" do
       get 'signin'
       response.should be_success

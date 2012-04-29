@@ -218,7 +218,7 @@ describe Host do
            @host.should respond_to(:feed)
          end
 
-         it "should include the user's microposts" do
+         it "should include the hosts's party" do
            @host.feed.should include(@p1)
            @host.feed.should include(@p2)
          end
