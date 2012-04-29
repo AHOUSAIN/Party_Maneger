@@ -15,6 +15,7 @@ class HostsController < ApplicationController
   
   def show
     @host = Host.find(params[:id]) # is refersence in the users spec created afte factory assigns(:hosts)
+    @parties = @host.parties.paginate(:page => params[:page])
     @title = @host.last_name
   end
   
@@ -50,9 +51,7 @@ class HostsController < ApplicationController
         end
       end
       private
-      def authenticate
-            deny_access unless signed_in?
-      end
+      
 
       def correct_host
             @host = Host.find(params[:id])

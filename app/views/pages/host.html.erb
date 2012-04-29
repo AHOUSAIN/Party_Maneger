@@ -9,10 +9,32 @@
 			<div id="logo">
 
 			</div>
+			
+			
 
 				<div class="post">
+					<% if signed_in? %>
+
+					  <table class="front" summary="For signed-in users">
+					    <tr>
+					      <td class="main">
+					        <h1 class="party">create a Party</h1>
+					        <%= render 'shared/party_form' %>
+					        <%= render 'shared/feed' %>
+					       
+					      </td>
+					      <td class="sidebar round">
+					        <%= render 'shared/host_info' %>
+					        
+					      </td>
+					    </tr>
+					  </table>
+
+					<% else %>
+					
 					<h1> Dear Mrs. Al - Doha </h1>
 					This is the host page for the host in the Party Manager application.Fatma and Arif are graduating from high school this year and the Al Doha family is planning a major party to celebrate this milestone. Mrs. Al Doha had thought about mailing invitations, but Mr. Al Doha realizes that it would be more efficient to handle the entire invitation/RSVP process online.
+					<%end%>
 					</div>
 				</div>
 
@@ -20,12 +42,15 @@
 			<!-- end content -->
 			<!-- start sidebars -->
 			<div id="sidebar1" class="sidebar">
+				
+				
+				
 				<ul>
 					<% if signed_in? %>
-					<li><h2><%= link_to "Hosts", hosts_path %></li></h2>
-					<li><h2><%= link_to "Sign out", signout_path, :method => :delete %></li></h2>
 					<li><h2><%= link_to "Profile", current_host, :method => :delete %></li></h2>
 					<li><h2><%= link_to "Settings", edit_host_path(current_host) %></li></h2>
+					<li><h2><%= link_to "Hosts", hosts_path %></li></h2>
+					<li><h2><%= link_to "Sign out", signout_path, :method => :delete %></li></h2>
 					<% else %>
 					<li>
 						<h2>have an account?</h2>

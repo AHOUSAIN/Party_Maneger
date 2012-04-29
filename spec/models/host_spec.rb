@@ -10,6 +10,8 @@
 #  created_at         :datetime        not null
 #  updated_at         :datetime        not null
 #  encrypted_password :string(255)
+#  salt               :string(255)
+#  admin              :boolean
 #
 
 require 'spec_helper'
@@ -189,5 +191,43 @@ describe Host do
                end
              end  
          end
+         describe "Party association" do
+         before(:each) do
+           @host = Host.create(@attr)
+           @p1 = Factory(:party, :host => @host, :created_at => 1.day.ago)
+           @p2 = Factory(:party, :host => @host, :created_at => 1.hour.ago)
+           
+         end
+
+         it "should have a party attribute" do
+           @host.should respond_to(:parties)
+         end
+         it "should have the right parties in the right order" do
+           @host.parties.should == [@p2, @p1]
+         end
+         it "should destroy associated parties" do
+           @host.destroy
+           [@p1, @p2].each do |party|
+             lambda do
+               Party.find(party)
+             end.should raise_error(ActiveRecord::RecordNotFound)
+           end
        end
-         
+       describe "Party feed" do
+         it "should have a Party" do
+           @host.should respond_to(:feed)
+         end
+
+         it "should include the user's microposts" do
+           @host.feed.should include(@p1)
+           @host.feed.should include(@p2)
+         end
+
+         it "should not include a different host's party" do
+           p3 = Factory(:party,
+                         :host => Factory(:host, :email => Factory.next(:email)))
+           @host.feed.should_not include(p3)
+         end
+       end
+     end
+       end

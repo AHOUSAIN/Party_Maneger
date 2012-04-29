@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120421144211) do
+ActiveRecord::Schema.define(:version => 20120426061346) do
 
   create_table "hosts", :force => true do |t|
     t.string   "first_name"
@@ -26,6 +26,21 @@ ActiveRecord::Schema.define(:version => 20120421144211) do
   end
 
   add_index "hosts", ["email"], :name => "index_hosts_on_email", :unique => true
+
+  create_table "parties", :force => true do |t|
+    t.string   "name"
+    t.string   "date"
+    t.string   "location"
+    t.string   "start_time"
+    t.string   "end_time"
+    t.string   "description"
+    t.string   "rsvp_date"
+    t.integer  "host_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "parties", ["host_id"], :name => "index_parties_on_host_id"
 
   create_table "users", :force => true do |t|
     t.string   "first_name"

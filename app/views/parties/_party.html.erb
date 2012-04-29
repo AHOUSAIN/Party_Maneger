@@ -1,0 +1,17 @@
+ 
+<tr>
+  <td class="micropost">
+<li>    
+<h3><%= party.name %>:</h3><%= party.date %>,<%= party.location %>,<%= party.start_time %>,<%= party.end_time %>,<%= party.description %>,<%= party.rsvp_date  %>,Posted <%= time_ago_in_words(party.created_at) %> ago.
+ 
+  </td>
+  <% host = party.host rescue Host.find(party.host_id) %>
+  <% if current_host?(host) %>
+    <td>
+      <%= button_to "delete", party,:method => :delete,
+                                   :confirm => "You sure?",
+                                   :title => party.name %><br>
+    </td>
+  <% end %>
+</li>
+</tr>

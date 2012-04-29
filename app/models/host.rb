@@ -10,7 +10,10 @@
 #  created_at         :datetime        not null
 #  updated_at         :datetime        not null
 #  encrypted_password :string(255)
+#  salt               :string(255)
+#  admin              :boolean
 #
+
 require 'digest'
 
 class Host < ActiveRecord::Base
@@ -21,6 +24,7 @@ class Host < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :first_name , :last_name , :email , :username , :password  ,:password_confirmation
   
+  has_many :parties, :dependent => :destroy
    validates :first_name , :presence => true,
                            :length => { :maximum => 50}
                            
@@ -54,6 +58,10 @@ class Host < ActiveRecord::Base
   def self.authenticate_with_salt(id, cookie_salt)
       host = find_by_id(id)
       (host && host.salt == cookie_salt) ? host : nil
+    end
+    
+    def feed
+      Party.where("host_id = ?" , id)
     end
   
   private

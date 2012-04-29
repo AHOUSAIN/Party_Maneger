@@ -1,0 +1,25 @@
+
+<tr>
+  <td class="gravatar">
+    <%= link_to gravatar_for(feed_item.host), feed_item.host %>
+  </td>
+  <td class="micropost">
+    <span class="host">
+      <%= link_to feed_item.host.last_name, feed_item.host %>
+    </span>
+      Party:<%= feed_item.name %> <br>
+
+    
+      Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
+   
+  </td>
+  <% if current_host?(feed_item.host) %>
+    <td>
+	<li>
+      								<%= button_to "delete", feed_item, :method => :delete,
+                                       :confirm => "You sure?",
+                                       :title => feed_item.name %>
+</li>    
+</td>
+  <% end %>
+</tr>
