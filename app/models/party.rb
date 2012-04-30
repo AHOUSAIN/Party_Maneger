@@ -4,12 +4,12 @@
 #
 #  id          :integer         not null, primary key
 #  name        :string(255)
-#  date        :string(255)
+#  date        :date
 #  location    :string(255)
-#  start_time  :string(255)
-#  end_time    :string(255)
+#  start_time  :time
+#  end_time    :time
 #  description :string(255)
-#  rsvp_date   :string(255)
+#  rsvp_date   :date
 #  host_id     :integer
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null

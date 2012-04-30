@@ -48,12 +48,12 @@ describe PartiesController do
       
       before(:each) do
         @attr = { :name=> "Graduation", 
-                  :date => "12-09-89" , 
+                  :date => Time.now + 2.days , 
                   :location => "Doha" , 
                   :start_time => "1900" ,
                   :end_time => "2300" , 
                   :description => "Party_time" , 
-                  :rsvp_date => "12-09-89" }
+                  :rsvp_date => Time.now + 2.days}
       end
       
       it "should create a Party" do

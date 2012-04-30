@@ -2,12 +2,12 @@ class CreateParties < ActiveRecord::Migration
   def change
     create_table :parties do |t|
       t.string :name
-      t.string :date
+      t.date :date
       t.string :location
-      t.string :start_time
-      t.string :end_time
+      t.time :start_time
+      t.time :end_time
       t.string :description
-      t.string :rsvp_date
+      t.date :rsvp_date
       t.integer :host_id
 
       t.timestamps
