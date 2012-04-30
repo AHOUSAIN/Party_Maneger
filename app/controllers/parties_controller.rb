@@ -1,5 +1,5 @@
 class PartiesController < ApplicationController
-before_filter :authenticate , :only => [:create,:destroy]
+before_filter :authenticate , :only => [:create,:show,:destroy]
 
 before_filter :authorized_host, :only => :destroy
 def create
@@ -11,6 +11,7 @@ def create
     render 'pages/host'
   end
 end
+
 
 def destroy
   @party.destroy

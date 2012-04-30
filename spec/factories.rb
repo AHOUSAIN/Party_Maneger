@@ -27,4 +27,14 @@ Factory.define :party do |party|
   party.association :host
 end
 
+Factory.define :guest do |guest|
+  guest.name "Foo bar"
+  guest.email "Foobar@gmail.com"
+  guest.invite_code 01
+  guest.expected_attendence 12
+  guest.actual_attendence 9
+  guest.association :party
+  
+end
+
 

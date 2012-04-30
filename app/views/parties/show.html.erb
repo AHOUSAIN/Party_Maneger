@@ -10,16 +10,16 @@
 
 	</div>
 <p1>
-		<div class="post">
-			Parties created by <h1><%= @host.first_name %> <%= @host.last_name %>  </h1>
-			  
-			<% if @host.parties.any? %>
-		          <%= render @parties %>
+		
+		
+			<h1>Guests</h1>
 
-		        <%= will_paginate @parties %>
+			<% if @party.guests.any? %>
+		          <%= render @guests %>
+
+		        <%= will_paginate @guests %>
 		      <% end %>
 		
-			
 		
 			</div>
 			
@@ -72,6 +72,16 @@
 					<p>you want to have an account and plan a party and invite guests </a>
 					  Hurry up and Sign up today</a>   
                       <%= link_to "Click here" , signup_path%></p>
+				</ul>
+			</li>
+			
+			<li>
+				
+				<h2>Guest ?</h2>
+				<ul>
+					<p>you want to have go to a party </a>
+					  Hurry up and Enter</a>   
+                      <%= link_to "Click here" , '#'%></p>
 				</ul>
 			</li>
 			

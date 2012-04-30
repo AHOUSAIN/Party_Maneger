@@ -29,6 +29,8 @@
 					      </td>
 					    </tr>
 					  </table>
+					
+					
 
 					<% else %>
 					
@@ -51,6 +53,17 @@
 					<li><h2><%= link_to "Settings", edit_host_path(current_host) %></li></h2>
 					<li><h2><%= link_to "Hosts", hosts_path %></li></h2>
 					<li><h2><%= link_to "Sign out", signout_path, :method => :delete %></li></h2>
+					<table class="front" summary="For signed-in users">
+					    <tr>
+					      <td class="main">
+					        <h1 class="party">Invite a Guest</h1>
+					        <%= render 'shared/invite_a_guest' %>
+					        
+					      </td>
+					     
+					    </tr>
+					  </table>
+					
 					<% else %>
 					<li>
 						<h2>have an account?</h2>
@@ -71,6 +84,7 @@
 		                      <%= link_to "Click here" , signup_path%></p>
 						</ul>
 					</li>
+					
 					
 					
 					<li>

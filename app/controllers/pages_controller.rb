@@ -4,6 +4,7 @@ class PagesController < ApplicationController
     if signed_in?
     @party = Party.new 
     @feed_items = current_host.feed.paginate(:page => params[:page])
+    
   end
 end
 

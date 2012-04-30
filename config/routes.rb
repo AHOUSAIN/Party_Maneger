@@ -2,10 +2,13 @@ PartyManeger::Application.routes.draw do
   
 
   
+ 
+  resources :guests , :only => [:create]
   resources :hosts
   resources :sessions , :only => [:new , :create ,:destroy]
-  resources :parties , :only => [:create ,:destroy ]
-
+  resources :parties , :only => [:create,:destroy ]
+  
+  
   match '/signup', :to => 'hosts#new'
   match '/about', :to => 'pages#about'
   match '/signin', :to =>  'sessions#new'

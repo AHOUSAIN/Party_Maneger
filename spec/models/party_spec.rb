@@ -21,12 +21,12 @@ describe Party do
     before(:each) do
       @host = Factory(:host)
       @attr = { :name=> "lorem ipsum", 
-                :date => "12-23-2010" , 
+                :date => Time.now + 2.days , 
                 :location => "Regency Halls" , 
                 :start_time => "1900" ,
                 :end_time => "2300" , 
                 :description => "Graduation party for my son" , 
-                :rsvp_date => "12-23-2010"  }
+                :rsvp_date => Time.now + 2.days  }
    
     end
 
@@ -63,8 +63,18 @@ describe Party do
              @host.parties.build(:description => "").should_not be_valid
              @host.parties.build(:rsvp_date => "").should_not be_valid
             end
-            
-            
-
     end
+    
+     describe "Guest association" do
+     before(:each) do
+       @party = Party.create(@attr)
+       
+     end
+
+     it "should have a guest attribute" do
+       @party.should respond_to(:guests)
+     end
+    
+   end
 end
+

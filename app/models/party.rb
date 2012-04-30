@@ -19,8 +19,9 @@ class Party < ActiveRecord::Base
   attr_accessible :name , :date , :location , :start_time ,:end_time , :description , :rsvp_date , :host_id
 
 belongs_to :host
+has_many :guests, :dependent => :destroy 
 
- date_regex = /\d{0-9}\/\d{0-9}\/\d{0-9}/
+ 
  validates :name      , :presence => true
  
  validates :host_id     , :presence => true                     
