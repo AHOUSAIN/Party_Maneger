@@ -8,6 +8,7 @@
   <% host = party.host rescue Host.find(party.host_id) %>
   <% if current_host?(host) %>
     <td>
+	 <%= link_to "Invite a Guest", guests_path %>
       <%= button_to "delete", party,:method => :delete,
                                    :confirm => "You sure?",
                                    :title => party.name %><br>
