@@ -21,6 +21,13 @@ namespace :db do
                    :email => email,
                    :password => password,
                    :password_confirmation => password)
+    
+    Party.all(:limit => 6).each do |party|
+      50.times do
+        party.guests.create!(:name => Faker::Lorem.sentence(5))
+      end
+    end
+    
     end
   end
 end

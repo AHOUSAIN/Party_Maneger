@@ -11,6 +11,11 @@ def create
     render 'pages/host'
   end
 end
+def show
+  @party=Party.find(params[:id])
+  @guests = @party.guests.paginate(:page => params[:page])
+  
+end
 
 
 def destroy

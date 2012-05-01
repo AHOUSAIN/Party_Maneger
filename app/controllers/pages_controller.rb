@@ -3,6 +3,7 @@ class PagesController < ApplicationController
     @title = 'Host'
     if signed_in?
     @party = Party.new 
+    @guest = Guest.new 
     @feed_items = current_host.feed.paginate(:page => params[:page])
     
   end

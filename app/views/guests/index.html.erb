@@ -1,0 +1,60 @@
+<div id="wrapper">
+
+<!-- start page -->
+<div id="page">
+	<!-- start content -->
+	<div id="content">
+	<div id="logo">
+
+	</div>
+
+		<div class="post">
+			<h1>All Guests</h1>
+        	<%= form_for(:guest, :url => guests_path) do |f| %>
+
+
+			  <div class="field">
+			    <%= f.label :name %><br />
+			    <%= f.text_field :name %>
+			  </div>
+			<div class="field">
+			    <%= f.label :email %><br />
+			    <%= f.text_field :email %>
+			  </div>
+
+			<div class="field">
+			    <%= f.label :invite_code  %><br />
+			    <%= f.text_field :invite_code  %>
+			  </div>
+
+			  <div class="field">
+			    <%= f.label :expected_attendence%><br />
+			    <%= f.text_field :expected_attendence %>
+			  </div>
+			  <div class="field">
+			    <%= f.label :actual_attendence %><br />
+			    <%= f.text_field :actual_attendence %>
+			  </div>
+			  <div class="actions">
+			    <%= f.submit "Invite" %>
+			  </div>
+			<% end %>
+
+			
+
+		
+			
+		</div>
+
+	</div>
+	<!-- end content -->
+	<!-- start sidebars -->
+	
+	<div style="clear: both;">&nbsp;</div>
+<!-- end page -->
+<div id="footer">
+	<p><%= link_to "Go Back to Host Page" , root_path%></p>
+</div>
+</div>
+
+</div>
