@@ -7,9 +7,11 @@ module SessionsHelper
     def current_host=(host)
         @current_host = host
     end
+    
       def current_host?(host)
           host == current_host
         end
+        
     def current_host
         @current_host ||= host_from_remember_token
     end
