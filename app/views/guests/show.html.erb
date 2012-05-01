@@ -11,8 +11,12 @@
 	</div>
 <p1>
 		<div class="post">
-		<p>Guest</p>
+		<p>Guest!!</p>
+			 
+			<tr>
+			  <td class="party">
 			
+			</tr>
 		
 			</div>
 			
@@ -22,64 +26,6 @@
 	</div>
 	<!-- end content -->
 	<!-- start sidebars -->
-	<div id="sidebar1" class="sidebar">
-		<ul>
-			<li>
-				<h1>
-					   <%= gravatar_for @host  %>
-				       <%= @host.last_name %> 
-				      
-				 </h1>
-					<strong>Name: </strong><%= @host.first_name %>  <%= @host.last_name %><br />
-				      <strong>URL: </strong>  <%= link_to host_path(@host), @host %><br />
-				 <strong>Parties</strong> <%= @host.parties.count %>
-			
-			</li>
-				
-
-			
-	</div>
-	
-	<div id="sidebar2" class="sidebar">
-		<ul>
-			<% if signed_in? %>
-			<li><h2><%= link_to "Profile", current_host, :method => :delete %></li></h2>
-			<li><h2><%= link_to "Settings", edit_host_path(current_host) %></li></h2>
-			<li><h2><%= link_to "Hosts", hosts_path %></li></h2>
-			<li><h2><%= link_to "Sign out", signout_path, :method => :delete %></li></h2>
-			<% else %>
-			<li>
-				<h2>have an account?</h2>
-				<ul>
-					<p>you already set up your account and you want to start planning for a party</a>
-					  go ahead and sign in </a>   
-                     <%= link_to "Click here" , signin_path%>
-</p>
-				</ul>
-			</li>
-			
-			<li>
-				
-				<h2>Didn't Sign up yet ?</h2>
-				<ul>
-					<p>you want to have an account and plan a party and invite guests </a>
-					  Hurry up and Sign up today</a>   
-                      <%= link_to "Click here" , signup_path%></p>
-				</ul>
-			</li>
-			
-			
-			<li>
-				<h2>Learn more </h2>
-				<ul>
-					<p>you want to have 
-					  more information about the project 5 and the about the party Manager application , click on the 	link to learn more about it  
-                   <%= link_to "Click here" , about_path%></p>
-				</ul>
-			</li>
-			<% end %>
-	</div>
-	<!-- end sidebars -->
 	
 	<div style="clear: both;">&nbsp;</div>
 <!-- end page -->

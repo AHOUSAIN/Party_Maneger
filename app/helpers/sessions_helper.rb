@@ -18,7 +18,10 @@ module SessionsHelper
     def signed_in?
         !current_host.nil?
     end
-    
+    def current_party 
+      current_party = current_host.parties.find(:params)
+      return current_party 
+    end
     def sign_out
         cookies.delete(:remember_token)
         self.current_host = nil
