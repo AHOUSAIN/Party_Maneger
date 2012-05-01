@@ -16,9 +16,10 @@
 class Guest < ActiveRecord::Base
   attr_accessible :name , :email ,:invite_code , :expected_attendence , :actual_attendence , :party_id
   belongs_to :party 
-  
+  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :party_id     , :presence => true  
-  validates :email      , :presence => true
+  validates :email      , :presence => true,
+                          :format => { :with => email_regex }
   validates :name      , :presence => true
   validates :invite_code     , :presence => true
   validates :expected_attendence      , :presence => true
